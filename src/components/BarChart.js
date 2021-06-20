@@ -54,26 +54,20 @@ console.log(maxTempC)
  */
 
 
-const config = {
-    type: 'scatter',
-    data: data,
-    options: {
-      responsive: true,
-      plugins: {
-        legend: {
-          position: 'top',
-        },
-        title: {
-          display: true,
-          text: 'Chart.js Line Chart'
-        }
-      }
-    },
-  };
-
 const Charts = () => {
     return <div>
         <Line 
+                        options= {{
+                                responsive: true,
+                                layout: {
+                                    padding: {
+                                        left: 50,
+                                        right: 50,
+                                        bottom: 250
+                                    }
+                                }
+
+                        }}
                         data={{
                             labels: dates,
                             
@@ -103,8 +97,6 @@ const Charts = () => {
                                 borderWidth: 1}
                             ]
                         }}
-                        height={400}
-                        width={600}
                         
         />
         </div>

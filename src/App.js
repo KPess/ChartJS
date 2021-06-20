@@ -6,8 +6,10 @@ class App extends React.Component {
   render() {
     return (
     <div>
-     <h1 style={{textAlign: "center"}}>Temperature Chart</h1>
-     <b><Charts/></b>
+     <b>
+       <h1 style={{textAlign: "center"}}>Temperature Chart</h1>
+       <Charts />
+     </b>
     </div>
    )
  };
