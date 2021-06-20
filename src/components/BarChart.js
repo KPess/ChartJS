@@ -84,7 +84,7 @@ const Charts = () => {
                                 label: 'Atlanta Minimum Temperature',
                                 data: minTempC,
                                 backgroundColor: [
-                                    '#0d8dfd'
+                                    'rgba(0, 82, 153, 0.6)'
                     
                                 ],
                                 borderColor: [
