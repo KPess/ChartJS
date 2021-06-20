@@ -1,9 +1,7 @@
+
 import React from 'react'
 import { Line} from 'react-chartjs-2'
 import tempData from "../TempData.json"
-let data = []
-
-console.log(tempData)
 
 /* for (let i=0; i<tempData.length; i++) {
     console.log(tempData[i])
@@ -15,7 +13,6 @@ let dates = []
 dates = Array.from(new Set(tempData.map(({ date }) => date)))
 dates.reverse()
 
-//For each date calculate the average minimum temp by looping through each station's data, adding it up, and dividing by number of entries
 
 
 let minTempC = []
@@ -34,30 +31,13 @@ for (let i=tempData.length-1; i>-1; i--) {
 }
 console.log(maxTempC)
 
-// let avgMinTempC = []
-// let totalMinTemps = 0
-//Loop through each date
-/* for (let j=0; j<dates.length; j++){
-    let todaysDate = dates[j]
-    let todaysTemp = 0
-    // Loop through every entry in dataset (89,219)
-    for (let i=0; i<tempData.length; i++) {
-        if (tempData[i].date === todaysDate) {
-            totalMinTemps += tempData[i].temp_min_c
-        }
-    }
-    todaysTemp = totalMinTemps/39
-    avgMinTempC.push(todaysTemp)
-    console.log(avgMinTempC)
-}
-
- */
 
 
 const Charts = () => {
     return <div>
         <Line 
                         options= {{
+                                color: '#b5b5b5',
                                 responsive: true,
                                 layout: {
                                     padding: {
@@ -65,36 +45,65 @@ const Charts = () => {
                                         right: 50,
                                         bottom: 250
                                     }
-                                }
+                                },
+                                legend: {
+                                    labels: {
+                                        // This more specific font property overrides the global property
+                                        fontColor: "#8c8c8c"
+                                    }
+                                },
+                                scales: {
+                                    yAxes: [{
+                                      gridLines: {
+                                          color: "#8c8c8c",
+                                          zeroLineColor: '#8c8c8c'
+                                      },
+                                      scaleLabel: {
+                                        display: true,
+                                        labelString: 'Temperature in Celsius',
+                                        fontColor: "#b5b5b5"
+                                      }
+                                    }],
+                                    xAxes: [{
+                                        gridLines: {
+                                            color: "#8c8c8c",
+                                            zeroLineColor: '#8c8c8c'
+                                        },
+                                        scaleLabel: {
+                                          display: true,
+                                          labelString: 'Date of Temperature Measurement',
+                                          fontColor: "#b5b5b5"
+                                        }
+                                      }]
+                                  }    
 
                         }}
                         data={{
                             labels: dates,
-                            
                             datasets: [{
                                 label: 'Atlanta Minimum Temperature',
                                 data: minTempC,
                                 backgroundColor: [
-                                    'rgba(255, 99, 132, 0.2)'
+                                    '#0d8dfd'
                     
                                 ],
                                 borderColor: [
-                                    'rgba(255, 99, 132, 1)'
+                                    '#005299'
                
                                 ],
-                                borderWidth: 1
+                                borderWidth: 2
                             },
                             {label: 'Atlanta Maximum Temperature',
                                 data: maxTempC,
                                 backgroundColor: [
-                                    'rgba(155, 99, 155, 0.2)'
+                                    'rgba(255, 99, 155, 0.2)'
                     
                                 ],
                                 borderColor: [
-                                    'rgba(155, 99, 155, 1)'
+                                    'rgba(255, 99, 155, 1)'
                
                                 ],
-                                borderWidth: 1}
+                                borderWidth: 2}
                             ]
                         }}
                         
