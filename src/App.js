@@ -1,15 +1,15 @@
 import React from 'react';
-
-import Charts from './components/BarChart'
 import './App.css';
+import Charts from './components/BarChart';
 
-const App = () => {
-  return (
-    <body style={{background: '', color: '', display:'flex', justifyContent:"center"}} >
-      <Charts />
-    </body>
-  
-  )
+class App extends React.Component {
+  render() {
+    return (
+    <div>
+     <h1 style={{textAlign: "center"}}>Temperature Chart</h1>
+     <b><Charts/></b>
+    </div>
+   )
+ };
 }
-
 export default App;
